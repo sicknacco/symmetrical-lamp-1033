@@ -33,11 +33,18 @@ RSpec.describe 'customers show page' do
   it 'shows the customer name and a list of their items' do
     visit "/customers/#{@jim.id}"
     # save_and_open_page
-
+    
     expect(page).to have_content("Customer Name: Jim Jimson")
     expect(page).to have_content(@banana.name)
     expect(page).to have_content(@tomato.name)
   end
-
-  it
+  
+  it 'shows item cost and associated supermarket' do
+    visit "/customers/#{@jim.id}"
+    save_and_open_page
+    
+    expect(page).to have_content(@banana.price)
+    expect(page).to have_content(@city_market.name)
+    
+  end
 end
