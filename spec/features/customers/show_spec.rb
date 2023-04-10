@@ -45,6 +45,17 @@ RSpec.describe 'customers show page' do
     
     expect(page).to have_content(@banana.price)
     expect(page).to have_content(@city_market.name)
-    
+  end
+  
+  it 'has a form to add items to a customer' do
+    visit "/customers/#{@jim.id}"
+    # save_and_open_page
+
+    fill_in(:name, with: "Orange")
+    fill_in(:price, with: 1)
+    click_on("Submit")
+
+    expect(page).to have_content(@orange.name)
+    expect(page).to have_content(@orange.price)
   end
 end
