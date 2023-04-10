@@ -43,6 +43,7 @@ group :development, :test do
   gem 'capybara'
   gem 'launchy'
   gem 'simplecov'
+  gem 'net-http' #For removing white trace
 end
 
 group :development do
